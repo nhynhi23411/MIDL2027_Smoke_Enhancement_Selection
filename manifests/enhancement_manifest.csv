@@ -1,0 +1,4 @@
+enhancer,description,parameters,code
+clahe,CLAHE on LAB luminance,clipLimit=3.0 tile=8x8,src/smoke_sim.py:clahe
+dcp,Dark channel prior dehazing + guided-filter transmission,patch=15 omega=0.95 t0=0.1 guided r=41 eps=1e-3,src/smoke_sim.py:dcp_dehaze
+desmoke_lap,Released DeSmoke-LAP output clips (weights not available; DeSmoke-LAP test clips only),n/a,data from DeSmoke-LAP_dataset.zip Video_Clips_Evaluation

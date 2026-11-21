@@ -1,0 +1,10 @@
+resolution: [960, 540]
+seed_rule: sha256(image|family|severity|repetition)[:8]
+repetitions: 3
+original_control: true
+family_A:   # development
+  type: multi-octave fractal haze, grey-white airlight [0.86,0.86,0.88]
+  severities: {low: {alpha_max: 0.25, coverage: 0.45}, mid: {alpha_max: 0.50, coverage: 0.60}, high: {alpha_max: 0.75, coverage: 0.75}}
+family_B:   # held out, final testing only
+  type: 1-2 turbulent Gaussian plumes, bluish/brownish tint, scatter blur, contrast loss
+  severities: {low: {alpha_max: 0.35}, mid: {alpha_max: 0.60}, high: {alpha_max: 0.85}}

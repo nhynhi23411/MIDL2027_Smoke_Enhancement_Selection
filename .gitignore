@@ -1,0 +1,6 @@
+data/
+*.pth
+*.pt
+__pycache__/
+.env
+modal_*.log

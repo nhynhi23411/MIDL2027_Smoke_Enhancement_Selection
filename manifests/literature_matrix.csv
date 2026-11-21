@@ -1,0 +1,7 @@
+Work,Topic,Relation,Gap,Source
+DeSmoke-LAP (Pan et al. 2022),Unpaired laparoscopic desmoking,Real smoke data and output clips,No downstream segmentation references,Surg Endosc 2022
+Seeing Through Smoke (Lu et al. 2026),Desmoking; effect on instrument segmentation,Closest task-driven evaluation,"Fixed segmenter, no selection/abstention",arXiv:2603.25867
+URIE (Son et al. 2020),Recognition-oriented enhancement,Enhancement judged by recognition,Natural images; no test-time branch choice,arXiv:2007.08979 / ECCV 2020
+From Fog to Failure (Kumar & Chadha 2025),Dehazing hurts clear-image detection,Supports selective preprocessing,Detection; no learned selector,arXiv:2502.02027
+Soft Dice Confidence (Borges et al. 2026),Image-level confidence for segmentation,Strong confidence control,No enhancement branches,arXiv:2402.10665 / Mach Learn 2026
+Selective classification (Geifman & El-Yaniv 2017),Risk-coverage,Protocol,Classification only,NeurIPS 2017

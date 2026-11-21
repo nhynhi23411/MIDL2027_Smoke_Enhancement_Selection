@@ -1,0 +1,28 @@
+{
+ "uterus": [
+  180
+ ],
+ "instrument_union": [
+  20,
+  40,
+  60,
+  80,
+  100,
+  120,
+  140,
+  160
+ ],
+ "raw_values": {
+  "0": "background",
+  "20": "tool1m",
+  "40": "tool1s",
+  "60": "tool2m",
+  "80": "tool2s",
+  "100": "tool3m",
+  "120": "tool3s",
+  "140": "tool4m",
+  "160": "tool4s",
+  "180": "uterus"
+ },
+ "note": "Missing annotation category is not evidence of target absence; uterus absent in 743/1800 reference masks."
+}
