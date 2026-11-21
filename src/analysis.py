@@ -159,3 +159,21 @@ res["selector_picks_enh_rate"] = {r: float(choose(sub, "selector").mean()) for r
 res["quality_estimator"] = model.params
 json.dump(res, open(out / "frozen_policy.json", "w"), indent=1)
 print(json.dumps(res, indent=1)); print(T1.round(3).to_string()); print(C.round(3).to_string())
+
+# ---- quantities used by the formal analysis in the paper (regret split, score rank agreement) ----
+th = {}
+for reg, sub in REG:
+    if len(sub) == 0: continue
+    dl = sub.dice_u_e.values - sub.dice_u_r.values; pk = choose(sub, "selector")
+    cm = lambda v: float(clip_means(sub, v).mean())
+    row = dict(HD=cm(np.maximum(dl, 0)), captured_help=cm(np.maximum(dl, 0) * pk), missed_help=cm(np.maximum(dl, 0) * ~pk),
+               harmful_pick=cm(np.maximum(-dl, 0) * pk), avoided_harm=cm(np.maximum(-dl, 0) * ~pk), gain=cm(dl * pk),
+               RD=cm(np.maximum(dl, 0) - dl * pk), pick_rate=float(pk.mean()))
+    if reg != "original":
+        from scipy.stats import spearmanr
+        sr, se = score(sub); q = np.where(pk, se, sr)
+        qc = np.where(choose(sub, "conf_only"), sub.conf_u_e.fillna(0), sub.conf_u_r.fillna(0)); qs = np.where(choose(sub, "sdc"), sub.sdc_u_e, sub.sdc_u_r)
+        row["spearman_q_vs_fgconf"] = float(spearmanr(q, qc)[0]); row["spearman_q_vs_sdc"] = float(spearmanr(q, qs)[0])
+        row["spearman_q_vs_dice"] = float(spearmanr(q, dice_of(sub, pk))[0]); row["spearman_fgconf_vs_dice"] = float(spearmanr(qc, dice_of(sub, choose(sub, "conf_only")))[0])
+    th[reg] = row
+json.dump(th, open(out / "theory_quantities.json", "w"), indent=1); print(json.dumps(th, indent=1))

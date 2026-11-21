@@ -10,6 +10,7 @@ Repository: https://github.com/nhynhi23411/MIDL2027_Smoke_Enhancement_Selection
 |---|---|
 | `src/smoke_sim.py` | two geometry-preserving smoke simulators (family A development, family B held out), CLAHE and dark-channel-prior dehazing |
 | `src/modal_run.py` | GPU job: frozen segmenter on 1800 AutoLaparo frames x 21 variants (original + 2 families x 3 severities, each none/CLAHE/DCP) |
+| `src/dcp_gain.py` | DCP transmission/gain statistics on unsmoked frames (Proposition 1 in the paper) |
 | `src/analysis.py` | ridge selector, confidence controls, clip-clustered bootstrap, Holm correction, risk-coverage |
 | `src/modal_desmoke.py`, `src/desmoke_analysis.py` | descriptive DeSmoke-LAP transfer |
 | `src/make_split.py`, `src/audit_autolaparo.py` | clip-proxy split, exposure table, image-mask audit |
